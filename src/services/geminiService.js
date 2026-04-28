@@ -1,14 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-// 사용자 프로젝트 기반 최신 모델 설정 (v1 API 사용)
-const genAI = new GoogleGenerativeAI(API_KEY, { apiVersion: "v1beta" });
-
 export const generateRefutation = async (claim) => {
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+
   if (!API_KEY) {
-    throw new Error("Gemini API 키가 설정되지 않았습니다. .env.local 파일에 VITE_GEMINI_API_KEY를 설정해주세요.");
+    throw new Error("Gemini API 키가 설정되지 않았습니다. VITE_GEMINI_API_KEY 환경변수를 설정해주세요.");
   }
 
+  // 사용자 프로젝트 기반 최신 모델 설정 (v1 API 사용)
+  const genAI = new GoogleGenerativeAI(API_KEY, { apiVersion: "v1beta" });
+  
   // 최신 Gemini 3 모델 사용
   const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 
