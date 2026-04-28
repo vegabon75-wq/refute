@@ -26,8 +26,8 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        <h1>AI 반박 생성기</h1>
-        <p>어떤 주장이든 감정을 배제하고 철저한 논리와 리스크 기반으로 파훼합니다.</p>
+        <h1>너의 판단을 도와줄게</h1>
+        <p>당신의 주장을 객관적인 시각에서 분석하고, 놓치기 쉬운 리스크와 논리를 짚어드립니다.</p>
       </header>
       
       <main style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
