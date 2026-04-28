@@ -7,8 +7,8 @@ export const generateRefutation = async (claim) => {
     throw new Error("Gemini API 키가 설정되지 않았습니다. VITE_GEMINI_API_KEY 환경변수를 설정해주세요.");
   }
 
-  // 사용자 프로젝트 기반 최신 모델 설정 (v1 API 사용)
-  const genAI = new GoogleGenerativeAI(API_KEY, { apiVersion: "v1beta" });
+  // 안정적인 v1 API 사용
+  const genAI = new GoogleGenerativeAI(API_KEY, { apiVersion: "v1" });
   
   // 안정적인 Gemini 1.5 Flash 모델 사용
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
