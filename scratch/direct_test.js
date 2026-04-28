@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = "AIzaSyB1Y56vuCS82uCrN5VKhZ-HJ7WadiEBkfY"; // 사용자의 새 키
+const API_KEY = ""; // 보안을 위해 하드코딩된 키를 제거했습니다. .env.local을 사용하세요.
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 async function test() {
