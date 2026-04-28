@@ -7,11 +7,11 @@ export const generateRefutation = async (claim) => {
     throw new Error("Gemini API 키가 설정되지 않았습니다. VITE_GEMINI_API_KEY 환경변수를 설정해주세요.");
   }
 
-  // SDK 기본 설정 사용 (v1)
-  const genAI = new GoogleGenerativeAI(API_KEY);
+  // 프리뷰 모델 사용을 위해 v1beta API 사용
+  const genAI = new GoogleGenerativeAI(API_KEY, { apiVersion: "v1beta" });
   
-  // 안정적인 Gemini 1.5 Flash 모델 사용
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  // 최신 Gemini 3 프리뷰 모델 사용
+  const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 
   const prompt = `
 당신은 'AI 반박 생성기'입니다. 사용자가 제시한 주장에 대해 감정이 아닌 논리 기반으로 가장 설득력 있는 반박을 생성해야 합니다.
